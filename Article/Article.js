@@ -127,7 +127,7 @@ const data = [
     firstParagraph.textContent = allArticles.firstParagraph;
     secondParagraph.textContent = allArticles.secondParagraph;
     thirdParagraph.textContent = allArticles.thirdParagraph;
-    
+
     article.appendChild(title);
     article.appendChild(date);
     article.appendChild(firstParagraph);
@@ -145,7 +145,7 @@ const data = [
     articles.appendChild(article);
     })
 
-    data.push()
+    
 
 
   
