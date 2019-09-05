@@ -87,11 +87,11 @@ const data = [
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
   },
   {
-    title: 'jordans title',
+    title: 'Jordan\'s Paragraphs :)',
     date: 'sept 4th, 2019',
-    firstParagraph: 'Hello this is my first paragraph',
-    secondParagraph: 'This is my second paragraph',
-    thirdParagraph: 'this is my third paragraph'
+    firstParagraph: 'Hello, this is my first paragraph!',
+    secondParagraph: 'Woah! This is my second paragraph!',
+    thirdParagraph: 'And....This is my third paragraph!'
   }
 ];
    
@@ -107,43 +107,47 @@ const data = [
   //   <span class='expandButton'></span>
   // </div>
 
-  const articles = document.querySelector('.articles');
+  
+  /////create a Function/////create Elements//////
+    const articles = document.querySelector('.articles');
+    
+    function createArticle(allArticles) {
+      const article = document.createElement('div');
+      const title = document.createElement('h2');
+      const date = document.createElement('p');
+      const firstParagraph = document.createElement('p');
+      const secondParagraph = document.createElement('p');
+      const thirdParagraph = document.createElement('p');
+      const buttonSpan = document.createElement('span');
+    
+      article.classList.add('article');
+      date.classList.add('date')
+      buttonSpan.classList.add('expandButton');
+      
 
-  function articleCreator(allArticles) {
-    const article = document.createElement('div');
-    article.classList.add('article');
-    const title = document.createElement('h2');
-    const date = document.createElement('p');
-    date.classList.add('date')
-    const firstParagraph = document.createElement('p');
-    const secondParagraph = document.createElement('p');
-    const thirdParagraph = document.createElement('p');
-    const button = document.createElement('span');
-    button.classList.add('expandButton');
-    button.textContent = '\u25bc';
+      title.textContent = allArticles.title;
+      date.textContent = allArticles.date;
+      firstParagraph.textContent = allArticles.firstParagraph;
+      secondParagraph.textContent = allArticles.secondParagraph;
+      thirdParagraph.textContent = allArticles.thirdParagraph;
+      buttonSpan.textContent = '\u25bc';
 
-    title.textContent = allArticles.title;
-    date.textContent = allArticles.date;
-    firstParagraph.textContent = allArticles.firstParagraph;
-    secondParagraph.textContent = allArticles.secondParagraph;
-    thirdParagraph.textContent = allArticles.thirdParagraph;
+      article.appendChild(title);
+      title.appendChild(date);
+      date.appendChild(firstParagraph);
+      firstParagraph.appendChild(secondParagraph);
+      secondParagraph.appendChild(thirdParagraph);
+      thirdParagraph.appendChild(buttonSpan);
 
-    article.appendChild(title);
-    article.appendChild(date);
-    article.appendChild(firstParagraph);
-    article.appendChild(secondParagraph);
-    article.appendChild(thirdParagraph)
-    article.appendChild(button)
-
-    button.addEventListener('click', e => {
-       article.classList.toggle('article-open');
-    })
-    return article
-  }
-  data.forEach(item => {
-    const article = articleCreator(item);
-    articles.appendChild(article);
-    })
+      buttonSpan.addEventListener('click', e => {
+      article.classList.toggle('article-open');
+      })
+      return article
+      }
+      data.forEach(allArticles => {
+        const article = createArticle(allArticles);
+        articles.appendChild(article);
+      });
 
     
 

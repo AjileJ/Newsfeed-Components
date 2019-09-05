@@ -18,30 +18,31 @@ let menuItems = [
   //     {each menu item as a list item}
   //   </ul>
   // </div>
-  const header = document.querySelector('.header');
-
-  header.appendChild(menuComponent(menuItems));
-
-  function menuComponent(array){
-    const menu = document.createElement('div');
-    menu.classList.add('menu')
-    const menuList = document.createElement('ul');
-
+  
     const menuButton = document.querySelector('.menu-button');
-    
-    menuItems.forEach(item => {
-      const li = document.createElement('li');
-      li.textContent = item;
-      menuList.appendChild(li);
-      
-      })
-      menu.appendChild(menuList);
 
-      menuButton.addEventListener('click', e => {
-        menu.classList.toggle('menu--open');
-    })
-    return menu;
-  }
+    function menuComponent(array){
+      const menu = document.createElement('div');
+      const menuList = document.createElement('ul');
+      
+      menu.classList.add('menu')
+      
+
+      menuItems.forEach(array => {
+        const li = document.createElement('li');
+        li.textContent = array;
+        menuList.appendChild(li);
+        })
+        menu.appendChild(menuList);
+
+        menuButton.addEventListener('click', e => {
+          menu.classList.toggle('menu--open');
+      })
+      return menu;
+    }
+    const header = document.querySelector('.header');
+
+    header.appendChild(menuComponent(menuItems));
 
   
 
